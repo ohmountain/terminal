@@ -31,8 +31,10 @@ class Login extends Component {
 
         if (e.target.value.length != 0 && e.target.value.match(pt) === null) {
             e.target.style.outlineColor = 'red';
+            error = true;
         } else {
             e.target.style.outlineColor = '#222';
+            error = false;
         }
 
         this.setState({
@@ -42,10 +44,17 @@ class Login extends Component {
     }
 
     render() {
+
+        var showButton = !(() => {
+            return this.state.value && this.state.value.length > 0 && this.state.error === false;
+        })();
+
         return <div className='login-component-wrapper'>
             <div className='login-form-wrapper'>
                 <div className='login-form-group'>
             <input placeholder="Your name" onInput={ this.handleInputChange.bind(this) } maxLength={12}/>
+            <div className='login-form-input--outerline'></div>
+            <div className={ showButton ? 'login-form-action-button' : 'login-form-action-button--active' }>Go</div>
                 </div>
                 </div>
             </div>;

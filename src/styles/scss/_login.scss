@@ -16,7 +16,7 @@ $animation-duration: 20s;
         width: 480px;
         height: 240px;
         position: relative;
-        background-color: #333;
+        background-color: #000;
         border: 2px solid #2E8B57;
         border-radius: 4px;
         box-shadow: 0 0 4px 0px #000;
@@ -27,8 +27,6 @@ $animation-duration: 20s;
 
         .login-form-group {
             width: 100%;
-            height: 104px;
-            line-height: 104px;
             text-align: center;
 
             input {
@@ -38,13 +36,73 @@ $animation-duration: 20s;
                 height: 24px;
                 line-height: 24px;
                 border-radius: 4px;
-                background-color: rgba(0, 0, 0, 0.1);
-                outline-color: #222;
+                background-color: #000;
+                outline: none;
                 text-align: center;
                 color: #2EFB57;
                 font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
             }
 
+            .login-form-input--outerline {
+                width: 10%;
+                height: 1px;
+                background-color: #333;
+                margin: auto;
+                transition-duration: 0.25s;
+            }
+
+            .login-form-action-button {
+                width: 128px;
+                height: 0px;
+                background-color: #333;
+                margin: auto;
+                border-radius: 0px;
+                transition-duration: 0.55s;
+                line-height: 48px;
+            }
+
+            .login-form-action-button--active {
+                width: 128px;
+                height: 32px;
+                position: relative;
+                margin: auto;
+                margin-top: 24px;
+                background-color: #2EFB57;
+                border-top: 2px solid #000;
+                border-radius: 4px;
+                line-height: 32px;
+                color: #000;
+                overflow: hidden;
+                transition-duration: 0.5s;
+                cursor: pointer;
+            }
+
+            .login-form-action-button--active:hover {
+                border-top: 2px solid #FFF;
+            }
+
+            .login-form-action-button--active:hover:after {
+                content: ' ';
+                position: absolute;
+                width: 68px;
+                height: 48px;
+                left: -80px;
+                bottom: -10px;
+                transform: rotate(-45deg);
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+                animation: login-form-action-button--active--animation;
+                animation-duration: 1.5s;
+                // animation-iteration-count: infinite;
+            }
+
+            input:focus + .login-form-input--outerline {
+                background-color: #2EFB57;
+                width: 128px;
+                transition-duration: 2.5s;
+                animation: login-form-input--outerline--animation;
+                animation-duration: .5s;
+                animation-iteration-count: 1;
+            }
 
             ::-webkit-input-placeholder { /* WebKit browsers */ 
                 color: #2e8b57;
@@ -184,5 +242,39 @@ $animation-duration: 20s;
         right: 100%;
         bottom: 0;
         top: 100%;
+    }
+}
+
+@keyframes login-form-input--outerline--animation {
+    0% {
+        width: 10%;
+    }
+
+    50% {
+        width: 140px;
+    }
+
+    60% {
+        width: 90px;
+    }
+
+    80% {
+        width: 130px;
+    }
+
+    100% {
+        width: 128px;
+    }
+
+}
+
+@keyframes login-form-action-button--active--animation {
+    0% {
+        left: -24px;
+    }
+
+    100% {
+        left: 100%;
+        right: 0;
     }
 }
