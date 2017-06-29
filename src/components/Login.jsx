@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import keybordVoice from '../attachments/keyborder';
 
@@ -54,7 +55,7 @@ class Login extends Component {
                 <div className='login-form-group'>
             <input placeholder="Your name" onInput={ this.handleInputChange.bind(this) } maxLength={12}/>
             <div className='login-form-input--outerline'></div>
-            <div className={ showButton ? 'login-form-action-button' : 'login-form-action-button--active' }>Go</div>
+            <Link to='/index' className={ showButton ? 'login-form-action-button' : 'login-form-action-button--active' }>Go</Link>
                 </div>
                 </div>
             </div>;

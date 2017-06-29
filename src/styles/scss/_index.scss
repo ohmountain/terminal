@@ -1,0 +1,41 @@
+.index-component-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: #2E8B57;
+
+    .index-attention-wrapper {
+        position: relative;
+        width: 260px;
+        height: 260px;
+        border-radius: 26px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-size: 22px;
+
+        animation-name: under-instruct-animation;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes under-instruct-animation {
+    0% {
+        box-shadow: 1px 1px 4px #111;
+    }
+
+    30% {
+        box-shadow: 2px 2px 5px #2E8B57, -2px -2px 5px #2E8B57;
+    }
+
+    100% {
+        box-shadow: 1px 1px 4px #111;
+    }
+}
