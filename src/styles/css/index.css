@@ -61,15 +61,12 @@ body {
         margin: auto;
         margin-top: 24px;
         background-color: #2EFB57;
-        border-top: 2px solid #000;
         border-radius: 4px;
         line-height: 32px;
         color: #000;
         overflow: hidden;
         transition-duration: 0.5s;
         cursor: pointer; }
-      .login-component-wrapper .login-form-wrapper .login-form-group .login-form-action-button--active:hover {
-        border-top: 2px solid #FFF; }
       .login-component-wrapper .login-form-wrapper .login-form-group .login-form-action-button--active:hover:after {
         content: ' ';
         position: absolute;
@@ -80,7 +77,8 @@ body {
         transform: rotate(-45deg);
         background: linear-gradient(transparent, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
         animation: login-form-action-button--active--animation;
-        animation-duration: 1.5s; }
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite; }
       .login-component-wrapper .login-form-wrapper .login-form-group input:focus + .login-form-input--outerline {
         background-color: #2EFB57;
         width: 128px;
